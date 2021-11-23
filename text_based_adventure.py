@@ -7,7 +7,7 @@
 def start_up_logo():
     print("  ____    __    _  _  ____  ___  _   _  ____  ____     ___  ____   ___  ____  ____  ____  ___") 
     print("'(  _ \  /__\  ( \( )(_  _)/ __)( )_( )( ___)(  _ \   / __)( ___) / __)(  _ \( ___)(_  _)/ __)'")
-    print("' ) _ < /(__)\  )  (  _)(_ \__ \ ) _ (  )__)  )(_) )  \__ \ )__) ( (__  )   / )__)   )(  \__ \'")
+    print("  ) _ < /(__)\  )  (  _)(_ \__ \ ) _ (  )__)  )(_) )  \__ \ )__) ( (__  )   / )__)   )(  \__ \ ")
     print("'(____/(__)(__)(_)\_)(____)(___/(_) (_)(____)(____/   (___/(____) \___)(_)\_)(____) (__) (___/'")
     print("\n")
 
@@ -28,7 +28,14 @@ def steps():
         steps_made_left.append(int(input("How many steps left will you walk?\n")))
     for i in range(1):
         steps_made_right.append(int(input("How many steps right will you walk?\n")))  
+    
+    print(steps_made_up)
+    print(steps_made_down)
+    print(steps_made_left)
+    print(steps_made_right)
+    
     total_steps = sum(steps_made_up)+sum(steps_made_down)+sum(steps_made_left)+sum(steps_made_right)
+    return total_steps
 
 
 def steps_up(): 
@@ -58,9 +65,9 @@ while True:
         if response == "left":
             response == input("The deer runs further into the landscape until you are alone. Or so you think... Would you like to keep going or stay and explore the area more? (go/stay) ")
             if response == "go":
-                print("you die")
+                steps()
             elif response == "stay":
-                print("you die")    
+                print("you stay")    
             else:
                 print("you die")
         elif response == "right":

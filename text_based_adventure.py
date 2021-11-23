@@ -12,6 +12,42 @@ def start_up_logo():
     print("\n")
 
 start_up_logo()
+
+def steps():
+    
+    steps_made_up = []
+    steps_made_down = []
+    steps_made_left = []
+    steps_made_right = []
+    
+    for i in range(1):
+        steps_made_up.append(int(input("How many steps up will you walk?\n")))
+    for i in range(1):
+        steps_made_down.append(int(input("How many steps down will you walk?\n")))    
+    for i in range(1):
+        steps_made_left.append(int(input("How many steps left will you walk?\n")))
+    for i in range(1):
+        steps_made_right.append(int(input("How many steps right will you walk?\n")))  
+    total_steps = sum(steps_made_up)+sum(steps_made_down)+sum(steps_made_left)+sum(steps_made_right)
+
+
+def steps_up(): 
+    steps_made_up = []
+    for i in range(1):
+        steps_made_up.append(int(input("How many steps up will you walk?\n")))
+def steps_down(): 
+    steps_made_down = []
+    for i in range(1):
+        steps_made_down.append(int(input("How many steps down will you walk?\n")))
+def steps_left(): 
+    steps_made_left = []
+    for i in range(1):
+        steps_made_left.append(int(input("How many steps left will you walk?\n")))
+def steps_right(): 
+    steps_made_right = []
+    for i in range(1):
+        steps_made_right.append(int(input("How many steps right will you walk?\n")))
+
 while True:
 
     response = input("Do you want to play Banished Secrets? (yes/no) ")

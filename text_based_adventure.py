@@ -1,13 +1,18 @@
 # art import source: https://pypi.org/project/art/ 
 # I installed an ascii art library project from the import source link above. 
 # In Command Prompt: I used 'py -m pip --version' to ensure I had pip installed then 'py -m pip install art' to install the library. In the Python3.9(64-bit) terminal: I used 'art import *' to be able to use the library then 'tprint("game","rnd-small")' to generate the ascii used in my code below.
-
 # The name of this text-based adventure game was created using a random name generator at https://www.fantasynamegenerators.com/video-game-names.php
+# Videos tutorials used as inspiration: https://www.youtube.com/watch?v=HzDcKq2NDwM&ab_channel=ElijahHenderson and https://www.youtube.com/watch?v=DEcFCn2ubSg&ab_channel=TechWithTim
 
 import sys
 import os
 import random
 import time
+
+# Function for resetting console
+def reset_console():
+    print("\n")
+    os.system('cls||clear')
 
 def start_up(str, delay = 0.05): #Function to display start up text more slowly. Delay each letter 0.05s
     for i in str:
@@ -27,6 +32,14 @@ start_up_logo()
 start_up("Banished Secrets Text Adventure Game 2021")
 
 # Create functions for managing how text is displayed
+
+def fprint(str, delay = 0):
+    print("\n" + str)
+    time.sleep(delay)
+
+def sprint(str, delay = 0):
+    print(str)
+    time.sleep(delay)
 
 # Create functions for each "room" in the game
 def main_hall():

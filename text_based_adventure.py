@@ -4,7 +4,19 @@
 
 # The name of this text-based adventure game was created using a random name generator at https://www.fantasynamegenerators.com/video-game-names.php
 
-def start_up_logo():
+import sys
+import os
+import random
+import time
+
+def start_up(str, delay = 0.05): #Function to display start up text more slowly. Delay each letter 0.05s
+    for i in str:
+        sys.stdout.write(i)
+        sys.stdout.flush()
+        time.sleep(delay)
+    print("\n")
+
+def start_up_logo(): # See earliest comments
     print("  ____    __    _  _  ____  ___  _   _  ____  ____     ___  ____   ___  ____  ____  ____  ___") 
     print("'(  _ \  /__\  ( \( )(_  _)/ __)( )_( )( ___)(  _ \   / __)( ___) / __)(  _ \( ___)(_  _)/ __)'")
     print("  ) _ < /(__)\  )  (  _)(_ \__ \ ) _ (  )__)  )(_) )  \__ \ )__) ( (__  )   / )__)   )(  \__ \ ")
@@ -12,7 +24,25 @@ def start_up_logo():
     print("\n")
 
 start_up_logo()
+start_up("Banished Secrets Text Adventure Game 2021")
 
+# Create functions for managing how text is displayed
+
+# Create functions for each "room" in the game
+def main_hall():
+    pass
+def kitchen(): 
+    pass
+def cellar():
+    pass    
+def bedroom():
+    pass
+def secret_dungeon():
+    pass
+def garden():
+    pass 
+
+# Create functions with lists for tracking steps travelled
 def steps():
     
     steps_made_up = []
@@ -55,6 +85,7 @@ def steps_right():
     for i in range(1):
         steps_made_right.append(int(input("How many steps right will you walk?\n")))
 
+# Looped response inputs where player makes choices
 while True:
 
     response = input("Do you want to play Banished Secrets? (yes/no) ")

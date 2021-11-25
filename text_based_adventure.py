@@ -43,7 +43,7 @@ def sprint(str, delay = 0): # Same as the fprint but without the add newline for
 
 # Create functions for each "room" in the game
 def main_hall():
-    pass
+    fprint("You enter through the front door and are now in the main hall.", 0.05)
 def kitchen(): 
     pass
 def cellar():

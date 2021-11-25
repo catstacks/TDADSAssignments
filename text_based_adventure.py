@@ -33,11 +33,11 @@ start_up("Banished Secrets Text Adventure Game 2021")
 
 # Create functions for managing how text is displayed
 
-def fprint(str, delay = 0):
+def fprint(str, delay = 0): # When called pass in str and delay as the 2 arguments, allows for custom delays
     print("\n" + str)
     time.sleep(delay)
 
-def sprint(str, delay = 0):
+def sprint(str, delay = 0): # Same as the fprint but without the add newline formatting
     print(str)
     time.sleep(delay)
 

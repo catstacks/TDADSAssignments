@@ -73,7 +73,7 @@ def room_builder(room_list, room_name, end_room, next_rooms):
         if choice in responses:
             if room_list[responses.index(choice)]:
                 if end_room:
-                    fprint("You made to the end!", 0.5)
+                    fprint("You made it to the end!", 0.5)
                     won_game()
                     break
                 else:
@@ -89,7 +89,7 @@ def room_builder(room_list, room_name, end_room, next_rooms):
 
 
 def main_hall():
-    room_builder([True, True, True, True, True], "Main Hall", False, ["kitchen", "cellar", "bedroom", "garden", "secret_dungeon"])
+    room_builder([True, False, True, True, True], "Main Hall", False, ["kitchen", "kill", "bedroom", "garden", "secret_dungeon"])
 
 def kitchen(): 
     room_builder([True, True, True, True, True], "Kitchen", False, ["kitchen", "cellar", "bedroom", "garden", "secret_dungeon"])
@@ -134,6 +134,7 @@ def garden():
 while True:
     response = input("Do you want to play Banished Secrets? (yes/no) ")
     if response.lower().strip() == "yes":
+        
         room_builder([True, True, True, True, True], "Main Hall", False, ["kitchen", "cellar", "bedroom", "garden", "secret_dungeon"])    
     else:
         print("Maybe another time then...")

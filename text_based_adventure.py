@@ -66,7 +66,7 @@ def room_builder(room_list, room_name, end_room, next_rooms):
             door_msg += f"door {count + 1})"
 
     input_msg += door_msg
-    print(input_msg)
+    #print(input_msg)
 
     while True:
         choice = input(input_msg).lower()

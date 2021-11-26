@@ -88,23 +88,20 @@ def room_builder(room_list, room_name, end_room, next_rooms):
             print(f"Invalid selection, you must choose ({door_msg}")
 
 
-def main_hall():
-    room_builder([True, False, True, True, True], "Main Hall", False, ["kitchen", "kill", "bedroom", "garden", "secret_dungeon"])
-
 def kitchen(): 
-    room_builder([True, True, True, True, True], "Kitchen", False, ["kitchen", "cellar", "bedroom", "garden", "secret_dungeon"])
+    room_builder([True, True, True, True], "Kitchen", False, ["cellar", "bedroom", "garden", "secret_dungeon"])
 
 def cellar():
-    room_builder([False, True, True], "Cellar", False, ["kill", "garden", "secret_dungeon"]) 
+    room_builder([False, True], "Cellar", False, ["kill", "garden"]) 
 
 def bedroom():
-    room_builder([True, True, True, True, True], "Bedroom", False, ["kitchen", "cellar", "bedroom", "garden", "secret_dungeon"])
+    room_builder([True, True, False, True, True], "Bedroom", False, ["kitchen", "cellar", "kill", "garden", "secret_dungeon"])
 
 def secret_dungeon():
-    room_builder([True, True, True, True, True], "Secret Dungeon", True, ["kitchen", "cellar", "bedroom", "garden", "secret_dungeon"])
+    room_builder([True, False], "Secret Dungeon", True, ["won_game", "kill"])
 
 def garden():
-   room_builder([True, True, True, True, True], "Garden", False, ["kitchen", "cellar", "bedroom", "garden", "secret_dungeon"])
+   room_builder([True, True, True], "Garden", False, ["kitchen", "cellar", "bedroom"])
 # Create functions with lists for tracking steps travelled
 # def steps():
     

@@ -2,7 +2,7 @@
 # I installed an ascii art library project from the import source link above. 
 # In Command Prompt: I used 'py -m pip --version' to ensure I had pip installed then 'py -m pip install art' to install the library. In the Python3.9(64-bit) terminal: I used 'art import *' to be able to use the library then 'tprint("game","rnd-small")' to generate the ascii used in my code below.
 # The name of this text-based adventure game was created using a random name generator at https://www.fantasynamegenerators.com/video-game-names.php
-# Videos tutorials used as inspiration: https://www.youtube.com/watch?v=HzDcKq2NDwM&ab_channel=ElijahHenderson and https://www.youtube.com/watch?v=DEcFCn2ubSg&ab_channel=TechWithTim
+# Videos tutorials used as inspiration: https://www.youtube.com/watch?v=HzDcKq2NDwM&ab_channel=ElijahHenderson and https://www.youtube.com/watch?v=DEcFCn2ubSg&ab_channel=TechWithTim and https://www.youtube.com/watch?v=NK_uQaC89vo&t=844s&ab_channel=CtrlAultDelTutorials 
 
 import sys
 import os
@@ -41,19 +41,63 @@ def sprint(str, delay = 0): # Same as the fprint but without the add newline for
     print(str)
     time.sleep(delay)
 
+def kill():
+    fprint("You died!", 0.5)
+def won_game():
+    fprint()    
 # Create functions for each "room" in the game
+def response_builder():
+    pass
+
+def room_builder(room_list, room_name, end_room, next_rooms):
+    delay = 0.5
+    print(f"You are in the {room_name}.")
+    time.sleep(delay)
+    room_count = len(room_list)
+    responses = []
+    # add response_bulder function here
+    input_msg = "Choose a door: ("
+    door_msg = ""
+    for count in range(room_count):
+        responses.append(f"door {count + 1}")
+        if count + 1 < room_count: 
+            door_msg += f"door {count + 1}, "
+        else: 
+            door_msg += f"door {count + 1})"
+
+    input_msg += door_msg
+    print(input_msg)
+
+    while True:
+        choice = input(input_msg).lower()
+        if choice in responses:
+            if room_list[responses.index(choice)]:
+                if end_room:
+                    fprint("You made to the end!", 0.5)
+                    won_game()
+                    break
+                else:
+                    fprint("Please proceed to the next room.", 0.5)
+            else:
+                kill()
+                break
+        else: 
+            time.sleep(delay)
+            print(f"Invalid selection, you must choose ({door_msg}")
+
 def main_hall():
-    fprint("You enter through the front door and are now in the main hall.", 0.05)
+    fprint("You enter are now in the main hall.", 0.05)
 def kitchen(): 
-    pass
+    fprint("You enter are now in the kitchen.", 0.05)
 def cellar():
-    pass    
+    fprint("You enter are now in the cellar.", 0.05)    
 def bedroom():
-    pass
+    fprint("You enter are now in the bedroom.", 0.05)
 def secret_dungeon():
-    pass
+    fprint("You enter are now in the secret dungeon.", 0.05)
 def garden():
-    pass 
+    fprint("You enter are now in the garden.", 0.05)
+
 
 # Create functions with lists for tracking steps travelled
 def steps():
@@ -98,6 +142,7 @@ def steps_right():
     for i in range(1):
         steps_made_right.append(int(input("How many steps right will you walk?\n")))
 
+
 # Looped response inputs where player makes choices
 while True:
 
@@ -121,3 +166,5 @@ while True:
     else:
         print("Maybe another time then...")
         break
+
+room_builder([True, True, True, True, True], "Main Hall", False, ["Kitchen", "Cellar", "Bedroom", "Garden", "Secret Dungeon"])
